@@ -69,8 +69,7 @@ write_files:
       permissions: '0755'
     - encoding: text/plain
       content: |
-        install.packages(c("remotes", "dplyr", "tibble", "here", "tidyr", "config"))
-        remotes::install_github("RMI-PACTA/pacta.runner", ref = "feature/run_pacta_docker")
+        install.packages(c("remotes", "dplyr", "tibble", "here", "config", "txtq"))
       path: '/home/azureuser/dependencies.R'
       permissions: '0755'
 
