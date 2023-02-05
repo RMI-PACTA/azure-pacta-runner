@@ -64,12 +64,13 @@ write_files:
         #! /bin/sh
         az login --identity
         az acr login -n transitionmonitordockerregistry
-        docker run transitionmonitordockerregistry.azurecr.io/hello-pacta:latest
+        cd /home/azureuser/workflow.meta.report.data.creator
+        Rscript phase-2_run-pacta-docker.R /mnt/dataprep2021q4/rawdata/pacta-runner/workflow.meta.report.yml
       path: '/home/azureuser/run_pacta.sh'
       permissions: '0755'
     - encoding: text/plain
       content: |
-        install.packages(c("remotes", "dplyr", "tibble", "here", "config", "txtq"))
+        install.packages(c("remotes", "tibble", "here", "config", "txtq"))
       path: '/home/azureuser/dependencies.R'
       permissions: '0755'
 
