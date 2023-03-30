@@ -8,7 +8,8 @@ This system is such that every machine is capable of cold-starting the entire pr
 
 **DO ALL OF THIS IN `tmux`**
 
-The first step to running this process is setting up the Azure File Share. All the data that you want to run PACTA on needs to be structured as follows:
+The first step to running this process is setting up the Azure File Share.
+It is easiest to create the queue if all the data that you want to run PACTA on is structured as follows:
 
 ``` bash
 investor_name
