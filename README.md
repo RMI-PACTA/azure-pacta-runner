@@ -94,7 +94,7 @@ where the next level down would be the `00_Log_Files`, `10_Processed_Inputs`, et
 Now you are more or less ready to get things going. You can detach from your tmux session on the VM, and go back to your local computer. 
 
 * Make sure you have this repo cloned locally (`azure-pacta-runner`)
-* Open up the file `run_many.sh` in a text editor, and edit the `count` field with the number of VMs you want to spin up (we can use up to 200), they each cost 0.25 Euro/ hour (or part thereof, e.g. 63min = 2 hours)
+* Open up the file `run_many.sh` in a text editor, and edit the `count` field with the number of VMs you want to spin up (we can use up to ~200), they each cost 0.25 Euro/ hour (or part thereof, e.g. 63min = 2 hours)
 * Edit the `resource-group` to a name to track costs of running. NOTE THIS DOES NOT CREATE THE RESOURCE GROUP. It must be already created on azure. Check the azure portal to see what resource groups already exist
 
 ## Prepare `cloud_init.txt`
