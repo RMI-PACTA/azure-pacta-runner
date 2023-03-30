@@ -135,3 +135,4 @@ When everything is done running, you need to make sure to actually turn off all 
 * Go to the resource group you had set for the process
 * Filter for mrdc
 * Click the little three dots, then click delete (and say that you are sure)
+  * You can force-delete the machines (rather than waiting for Azure to send a kill signal to them and then waiting for them to shutdown cleanly)
