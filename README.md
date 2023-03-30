@@ -37,6 +37,7 @@ Note: `investor_name` and `portfolio_name` are just placeholders, they can be an
 * Once all your portfolios are prepared, upload them to the AFS (tarred). Use the following command to do this: `tar -zcvf archive-name.tar.gz source-directory-name`
 * Note: It's important in the above command that `source_directory_name` specifies a single directories (not `path/to/directory`), otherwise the whole parent directory structure gets tarred. 
 * Once the data is somewhere on the AFS (put it in a folder specific to the project), you must untar it with: `tar -xzvm --no-same-permissions --no-same-owner -f archive-name.tar.gz`
+Note that using a `zip` file (rather than `.tar.gz`) is acceptable, but unzipping on AFS is a slow process, that throws a lot of uninformative warnings about permissions
 
 ## Setup the Analysis Details
 
