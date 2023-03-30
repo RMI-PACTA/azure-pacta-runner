@@ -120,7 +120,7 @@ Once that runs, you can spin up your runners (finally, woo!):
 
 * Check out portal.azure.com virtual machines
 * There should be ones created called `mrdc-runner-C` with all of the VMs that you created
-* Note: mrdc = Meta Report Data Creator
+  * Note: mrdc = Meta Report Data Creator
 * Pro-tip: A machine that is running is running
 
 To actually see how the machines are progressing against the portfolios, you can inspect a file called `supplemental`, in the `queue` folder.
