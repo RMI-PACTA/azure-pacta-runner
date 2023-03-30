@@ -102,6 +102,7 @@ Now you are more or less ready to get things going. You can detach from your tmu
 Now open up the `cloud_init.txt` file. This is the file that will be used to create each VM (including installing all of it's dependencies etc.)
 
 * Ensure that line 68 points to wherever your `workflow.meta.report.yml` is, in relation to `/mnt/dataprep2021q4/rawdata`
+  * Note that the runners mount the `rawdata` fileshare at `/mnt/dataprep2021q4/rawdata`, which is different than where dataprep-bigmem mounts it (`/mnt/rawdata`)
 
 ## Run the VMs
 
