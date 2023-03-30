@@ -17,7 +17,7 @@ investor_name
 │   ├── 10_Parameter_File
 │   │   └── portfolio_name_1_PortfolioParameters.yml
 │   ├── 20_Raw_Inputs
-│   │   └── life.csv
+│   │   └── portfolio_name_1.csv
 │   ├── 30_Processed_Inputs
 │   ├── 40_Results
 │   └── 50_Outputs
