@@ -108,7 +108,8 @@ Now open up the `cloud_init.txt` file. This is the file that will be used to cre
 
 You will first need to make sure you are authenticated with Azure. This should happen automatically if you are working from an RMI computer:
 
-* `az login`
+* `az identity list`
+  * if you are not logged in, you may need to run `az login`
 
 Once that runs, you can spin up your runners (finally, woo!):
 * `./run_many.sh`
