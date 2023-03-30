@@ -46,7 +46,7 @@ The next step is to create a file called `workflow.meta.report.yml`, in the root
 * It should look something like:
 ``` yml
 default:
-  run_results: true (run `web_tool_scripts_1.R` and `_2.R`)
+  run_results: true # (run `web_tool_scripts_1.R` and `_2.R`)
   run_reports: false (do you want reports to be generated)
   docker_tag: "0.0.0.9055" (what docker tag of rmi_pacta should be used, it MUST be on the registry)
   docker_image: "transitionmonitordockerregistry.azurecr.io/rmi_pacta" (image to use, must be on TM registry otherwise runners won't see it)
