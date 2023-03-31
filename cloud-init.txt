@@ -70,7 +70,10 @@ write_files:
       permissions: '0755'
     - encoding: text/plain
       content: |
-        install.packages(c("remotes", "tibble", "here", "config", "txtq"))
+        install.packages(c("remotes", "here", "config", "txtq"))
+        remotes::install_version("rlang", version = "1.0.6") #TODO: Bump to a more recent version of R instead
+        remotes::install_version("vctrs", version = "0.5.2")
+        install.packages("tibble") 
       path: '/home/azureuser/dependencies.R'
       permissions: '0755'
 
