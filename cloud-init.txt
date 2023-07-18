@@ -20,6 +20,9 @@ packages:
     - azure-cli
     - cifs-utils
     - docker.io
+    - libcurl4-openssl-dev
+    - libssl-dev
+    - libxml2-dev
     - r-base-core
 
 # create the docker group
@@ -56,7 +59,7 @@ write_files:
           --resource-group $resourceGroupName \
           --account-name $storageAccountName \
           --query "[0].value" --output tsv | tr -d '"')
-        sudo mount -t cifs "$smbPath" "$mntPath" -o username="$storageAccountName",password="$storageAccountKey",serverino,nosharesock,actimeo=30,file_mode=0777,dir_mode=0777,vers=3.1.1
+        sudo mount -t cifs "$smbPath" "$mntPath" -o username="$storageAccountName",password="$storageAccountKey",serverino,nosharesock,actimeo=30,file_mode=0777,nobrl,dir_mode=0777,vers=3.1.1
       path: '/home/azureuser/mount_share.sh'
       permissions: '0755'
     - encoding: text/plain
@@ -64,21 +67,26 @@ write_files:
         #! /bin/sh
         az login --identity
         az acr login -n transitionmonitordockerregistry
+        RESULT=$?
+        if [ $RESULT -ne 0 ]; then
+          sudo shutdown 0
+        fi
         cd /home/azureuser/workflow.meta.report.data.creator
         Rscript phase-2_run-pacta-docker.R /mnt/dataprep2021q4/rawdata/pacta-runner/workflow.meta.report.yml
       path: '/home/azureuser/run_pacta.sh'
       permissions: '0755'
     - encoding: text/plain
       content: |
-        install.packages(c("remotes", "tibble", "here", "config", "txtq"))
+        install.packages(c("remotes", "tibble", "here", "config", "AzureQstor"))
       path: '/home/azureuser/dependencies.R'
       permissions: '0755'
 
 runcmd:
   - [mkdir, -p, /home/azureuser/.azure]
-  - [chown, azureuser, /home/azureuser/.azure]
   - [mkdir, -p, /home/azureuser/.docker]
-  - [chown, azureuser, /home/azureuser/.docker]
+  - [chown, -R, azureuser, /home/azureuser]
+  - [chown, -R, root:staff, /usr/local/lib/R/site-library]
+  - [chmod, -R, 775, /usr/local/lib/R/site-library]
   - "git clone https://github.com/RMI-PACTA/workflow.meta.report.data.creator.git /home/azureuser/workflow.meta.report.data.creator"
   - [su, -c, "Rscript /home/azureuser/dependencies.R", azureuser]
   - [su, -c, "/home/azureuser/mount_share.sh", azureuser]

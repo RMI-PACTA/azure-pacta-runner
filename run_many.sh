@@ -11,5 +11,7 @@ az vm create \
     --size "Standard_E4-2as_v4" \
     --count 5 \
     --generate-ssh-keys \
+    --nic-delete-option delete \
+    --os-disk-delete-option delete \
     --custom-data cloud-init.txt
 
