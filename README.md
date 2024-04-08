@@ -1,5 +1,9 @@
 # PACTA Runner on Azure VMs
 
+[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported)
+
+**This project is archived for future reference, but no new work is expected in this repository.**
+
 `run_many.sh` is a shell script that spins up many VMs, and uses `cloud-init` to prepare each of them as a PACTA runner.
 
 This system is such that every machine is capable of cold-starting the entire process, so long as there is access to an Azure File Share (storage account) that contains PACTA directories.
